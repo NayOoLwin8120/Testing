@@ -101,7 +101,9 @@
                                 <ul class="sub-menu" aria-expanded="true">
                                     <li>
 
-                                        <a href="{{route('admin.addblog')}}" >Blog-page Add  </a>/
+                                        <a href="{{route('admin.addblog')}}" >Blog-page Add  </a>
+                                        <a href="{{route('admin.addblogcategory')}}" >Blog_category add  </a>
+                                        <a href="{{route('admin.all_blog_category')}}" >All Blog_category  </a>
                                         <a href="{{route('admin.allblogs')}}" >All Blog </a>
 
                                     </li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\Blog_categoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PortfilioController;
 
@@ -84,7 +85,18 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('admin/allblog', 'allblog')->name('admin.allblogs');
     Route::get('admin/addblog', 'addblog')->name('admin.addblog');
     Route::post('admin/storeblog', 'storeblog')->name('admin.blog_store');
-    Route::post('admin/editblog/{id}', 'editblog')->name('admin.editblog');
+    Route::get('admin/editblog/{id}', 'editblog')->name('admin.editblog');
+    Route::post('admin/updateblog', 'updateblog')->name('admin.updateblog');
+    Route::get('admin/deleteblog/{id}', 'deleteblog')->name('admin.deleteblog');
+});
+//Blog_category Controller
+Route::controller(Blog_categoryController::class)->group(function () {
+    Route::get('admin/all_blogs_category', 'all_blog_category')->name('admin.all_blog_category');
+    Route::get('admin/add_blog_category', 'add_blog_category')->name('admin.addblogcategory');
+    Route::post('admin/store_blog_category', 'store_blog_category')->name('admin.blogcategory_store');
+    Route::get('admin/edit_blog_category/{id}', 'edit_blog_category')->name('admin.editcategoryblog');
+    Route::post('admin/update_blog_category/{id}', 'update_blog_category')->name('admin.update_blog_category');
+    Route::get('admin/delete_blog_category/{id}', 'delete_blog_category')->name('admin.deletecategoryblog');
 });
 
 require __DIR__ . '/auth.php';
