@@ -91,6 +91,7 @@
                                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                 </div>
                             </div>
+                            <input type="hidden" name="image">
 
                             <div class="form-group mb-3 row">
                             <div class="col-12">

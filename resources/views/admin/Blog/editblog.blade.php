@@ -4,6 +4,7 @@
 @extends('admin.dashboard')
 @section('maincontent')
 
+
 <div class="main-content">
 
     <div class="page-content">
@@ -27,6 +28,17 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Select</label>
+                                    <div class="col-sm-10">
+                                        <select name="blog_category_id" class="form-select" aria-label="Default select example">
+                                            <option selected="">{{$blog->category->category_name}}</option>
+                                            @foreach($allcategory as $category)
+                                            <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="blog_button" class="col-sm-2 col-form-label">Blog_Button</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="blog" name="blog_button" value="{{$blog->blog_button}}">
@@ -34,6 +46,15 @@
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
+                    </div>
+                    <div class="row mb-3">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Blog Tags</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" id="blog" value="home,tech" name="blog_tags" data-role="tagsinput">
+                                        @error('blog-tags')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
                     </div>
 
 

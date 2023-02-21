@@ -9,7 +9,7 @@
     <div class="page-content">
         <div class="card-body">
 
-                <h1 class="card-title text-center mb-3">Home Slider</h1>
+                <h1 class="card-title text-center mb-3">About Us Page</h1>
 
                 <!-- end row -->
                 <form action="{{route('admin.store_about_us',$aboutus->id)}}" method="post" enctype="multipart/form-data">
@@ -54,10 +54,10 @@
                     <div class="row mb-3">
                         <label for="show_image" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                         <img class="w-25 " id="show_image" src="{{(!empty($aboutus->aboutus_image)) ? url($homeslider->aboutus_image) : asset('admin/no_image.jpg')}}" alt="Show Slider Imgae">
+                         <img class="w-25 " id="show_image" src="{{(!empty($aboutus->aboutus_image)) ? url($aboutus->aboutus_image) : asset('admin/no_image.jpg')}}" alt="Show Slider Imgae">
                         </div>
                     </div>
-                   <input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light" value="Home Slider ">
+                   <input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light" value="Upload About us ">
                 </form>
 
 

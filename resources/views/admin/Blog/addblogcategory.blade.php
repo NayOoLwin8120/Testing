@@ -16,10 +16,10 @@
             @csrf
 
                    <div class="row mb-3">
-                        <label for="blog_category_name" class="col-sm-2 col-form-label">Blog_Category_Name :: </label>
+                        <label for="category_name" class="col-sm-2 col-form-label">Blog_Category_Name :: </label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" value="" id="blog_category_name" name="blog_category_name">
-                            @error('blog_category_name')
+                            <input class="form-control" type="text" value="" id="category_name" name="category_name">
+                            @error('category_name')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>

@@ -2,6 +2,7 @@
 
 @extends('admin.dashboard')
 @section('maincontent')
+{{-- @dd($allcategory); --}}
 
         <div class="main-content">
 
@@ -68,7 +69,7 @@
                         @foreach($allcategory as $item)
                         <tr >
                           <td>{{$i++}}</td>
-                          <td>{{$item->blog_category_name}}</td>
+                          <td>{{$item->category_name}}</td>
                           <td>{{$item->created_at}}</td>
                           <td>{{$item->updated_at}}</td>
                           <td>

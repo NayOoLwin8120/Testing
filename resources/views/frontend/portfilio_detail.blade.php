@@ -1,6 +1,7 @@
-{{-- @dd($portfilio); --}}
+
 @extends('frontend.main_master')
 @section('main')
+
 <main>
 
             <!-- breadcrumb-area -->
@@ -39,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="services__details__thumb">
-                                <img src="{{$portfilio->portfilio_image}}" style="height:430px;width:850px" alt="">
+                                <img src="{{$portfilio->portfilio_image}}"  alt="No Image">
                             </div>
                             <div class="services__details__content">
                                 <h2 class="title">{{$portfilio->portfilio_title}}</h2>

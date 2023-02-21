@@ -8,9 +8,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutusController;
-use App\Http\Controllers\Blog_categoryController;
+
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PortfilioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -89,8 +91,8 @@ Route::controller(BlogController::class)->group(function () {
     Route::post('admin/updateblog', 'updateblog')->name('admin.updateblog');
     Route::get('admin/deleteblog/{id}', 'deleteblog')->name('admin.deleteblog');
 });
-//Blog_category Controller
-Route::controller(Blog_categoryController::class)->group(function () {
+//Category Controller
+Route::controller(CategoryController::class)->group(function () {
     Route::get('admin/all_blogs_category', 'all_blog_category')->name('admin.all_blog_category');
     Route::get('admin/add_blog_category', 'add_blog_category')->name('admin.addblogcategory');
     Route::post('admin/store_blog_category', 'store_blog_category')->name('admin.blogcategory_store');

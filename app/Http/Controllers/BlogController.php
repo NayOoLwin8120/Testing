@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\Blog_category;
-
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
@@ -14,11 +13,14 @@ class BlogController extends Controller
     public function allblog()
     {
         $allblog = Blog::latest()->get();
+        // $category = Blog::has('blog_category')->first()->get();
+        // $category = Blog::with('blog_category.blog_category_name')->latest()->get();
+
         return view('admin.Blog.allblog', compact('allblog'));
     }
     public function addblog()
     {
-        $allcategory = Blog_category::orderBy('blog_category_name', 'ASC')->get();
+        $allcategory = Category::orderBy('category_name', 'ASC')->get();
         return view('admin.Blog.addblog', compact('allcategory'));
     }
     public function storeblog(Request $request)
@@ -26,7 +28,7 @@ class BlogController extends Controller
         $request->validate(
             [
                 'blog_title' => 'required',
-                'blog_category_id' => 'required',
+                'category_id' => 'required',
                 'blog_button' => 'required',
                 'blog_tags' => 'required',
                 'blog_description' => 'required',
@@ -36,7 +38,7 @@ class BlogController extends Controller
             ],
             [
                 'blog_title.required' => 'Blog Title Field is required',
-                'blog_category_id.required' => 'Blog Category Field is required',
+                'category_id.required' => ' Category Field is required',
                 'blog_button.required' => 'Blog Button Field is required',
                 'blog_tags.required' => 'Blog Tags Field is required',
                 'blog_description.required' => 'Blog Description fieis required',
@@ -55,7 +57,7 @@ class BlogController extends Controller
         Blog::insert(
             [
                 'blog_title' => $request->blog_title,
-                'blog_category_id' => $request->blog_category_id,
+                'category_id' => $request->category_id,
                 'blog_button' => $request->blog_button,
                 'blog_tags' => $request->blog_tags,
                 'blog_description' => $request->blog_description,
@@ -73,7 +75,8 @@ class BlogController extends Controller
     public function editblog($id)
     {
         $blog = Blog::findorFail($id);
-        return view('admin.Blog.editblog', compact('blog'));
+        $allcategory = Category::orderBy('category_name', 'ASC')->get();
+        return view('admin.Blog.editblog', compact('blog', 'allcategory'));
     }
     public function updateblog(Request $request)
     {

@@ -2,6 +2,7 @@
 
 @extends('admin.dashboard')
 @section('maincontent')
+{{-- @dd($category) --}}
 
         <div class="main-content">
 
@@ -75,7 +76,8 @@
                           <td>{{$i++}}</td>
                            <td><img src="{{asset($item->blog_image)}}" alt="noimage" style="width: 60px;height:60px"></td>
                           <td>{{$item->blog_title}}</td>
-                          <td>{{$item->blog_category_id}}</td>
+                          <td>{{$item->category->category_name}}</td>
+
                           <td>{{$item->blog_tags}}</td>
                           <td>{{$item->blog_button}}</td>
                           <td>{{$item->blog_description}}</td>
@@ -113,4 +115,4 @@
 
 
 @endsection()
-  {{--  --}}
+

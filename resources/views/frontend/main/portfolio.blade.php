@@ -58,7 +58,7 @@ $data=App\Models\Portfilio::all();
                                         @foreach ($data as $item )
                                          <div class="portfolio__item">
                                             <div class="portfolio__thumb">
-                                                <img src="{{($item->portfilio_image)}}" alt="No image" >
+                                                <img src="{{$item->portfilio_image}}" alt="No image" >
                                             </div>
                                             <div class="portfolio__overlay__content">
                                                 <span>{{$item->portfilio_name}}</span>

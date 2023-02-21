@@ -46,7 +46,7 @@ class PortfilioController extends Controller
         $image = $request->file('portfilio_image');
         $image_gen = hexdec(uniqid()) . "." . $image->getClientOriginalExtension();
         Image::make($image)->resize(1020, 520)->save('admin/portfilio_image/' . $image_gen);
-        $save_url = 'admin/portfilio_image/' . $image_gen;
+        $save_url = '/admin/portfilio_image/' . $image_gen;
 
         Portfilio::insert(
             [
@@ -54,6 +54,7 @@ class PortfilioController extends Controller
                 'portfilio_title' => $request->portfilio_title,
                 'portfilio_button' => $request->portfilio_button,
                 'portfilio_description' => $request->portfilio_description,
+
                 'portfilio_image' => $save_url,
             ]
         );

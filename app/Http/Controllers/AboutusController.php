@@ -31,8 +31,8 @@ class AboutusController extends Controller
         if ($request->file('aboutus_image')) {
             $image = $request->file('aboutus_image');
             $image_gen = hexdec(uniqid()) . "." . $image->getClientOriginalExtension();
-            Image::make($image_gen)->resize(523, 625)->save('/admin/aboutus/' . $image_gen);
-            $saveurl = '/admin/aboutus/' . $image_gen;
+            Image::make($image)->resize(523, 625)->save('admin/about_us/' . $image_gen);
+            $saveurl = '/admin/about_us/' . $image_gen;
 
             Aboutus::findorFail($aboutus_id)->update([
                 "title" => $request->title_name,
