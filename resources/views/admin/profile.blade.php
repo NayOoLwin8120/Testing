@@ -4,7 +4,7 @@
 
     <div class="page-content">
        <div class="card mb-4">
-                <img class="card-img-top w-25" src="{{!empty($admindata->image)?url('admin/profileimage/'.$admindata->image):url('admin/no_image.jpeg')}}" alt="Card image cap">
+                <img class="card-img-top w-25" src="{{!empty($admindata->image)?url('admin/profileimage/'.$admindata->image):url('admin/no_image.jpg')}}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">Name:{{$admindata->name}}</h4>
                     <h4 class="card-title">Email:{{$admindata->email}}</h4>

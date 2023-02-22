@@ -13,7 +13,7 @@
                 <h1 class="card-title text-center mb-3">Edit Blog</h1>
 
                 <!-- end row -->
-                <form action="{{route('admin.updateblog')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('admin.updateblog_detail')}}" method="post" enctype="multipart/form-data">
             @csrf
 
                  <input type="hidden" name="id" value="{{$blog->id}}">
@@ -30,10 +30,10 @@
                     <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label">Select</label>
                                     <div class="col-sm-10">
-                                        <select name="blog_category_id" class="form-select" aria-label="Default select example">
-                                            <option selected="">{{$blog->category->category_name}}</option>
+                                        <select name="category_id" class="form-select" aria-label="Default select example">
+
                                             @foreach($allcategory as $category)
-                                            <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+                                            <option value="{{$category->id}}" {{$category->id === $blog->category_id ? 'selected' : 'Choose your Category_name'}} >{{$category->category_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

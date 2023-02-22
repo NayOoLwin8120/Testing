@@ -37,7 +37,7 @@
 
         <!-- header-area -->
 
-        @include('frontend.header.header');
+        @include('frontend.header.header')
                                 <!-- header-area-end -->
 
     <!-- main-area -->

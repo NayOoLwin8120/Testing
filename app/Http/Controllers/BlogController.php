@@ -81,32 +81,52 @@ class BlogController extends Controller
     public function updateblog(Request $request)
     {
 
+
         $data_id = $request->id;
 
 
         if ($request->file('blog_image')) {
             $image = $request->file('blog_image');
             $image_gen = hexdec(uniqid()) . "." . $image->getClientOriginalExtension();
-            Image::make($image)->resize(220, 220)->save('admin/blog_image/' . $image_gen);
+            Image::make($image)->resize(430, 327)->save('admin/blog_image/' . $image_gen);
             $saveurl = 'admin/blog_image/' . $image_gen;
 
             Blog::findorFail($data_id)->update([
-                'blog_title' => $request->blog_title,
-                'blog_button' => $request->blog_button,
                 'blog_image' => $saveurl,
+                'blog_title' => $request->blog_title,
+                'category_id' => $request->category_id,
+                'blog_button' => $request->blog_button,
+                'blog_tags' => $request->blog_tags,
                 'blog_description' => $request->blog_description,
-
-
                 "updated_at" => Carbon::now()
 
             ]);
 
+
             $notification = array(
-                'message' => "Blog Data updated  successfully",
+                'message' => "Blog Data With image updated  successfully",
                 'alert-type' => "success",
             );
 
-            return redirect(route('admin.allblogs'))->with($notification);
+            return redirect()->route('admin.allblogs')->with($notification);
+        } else {
+
+            Blog::findorFail($data_id)->update([
+                'blog_title' => $request->blog_title,
+                'category_id' => $request->category_id,
+                'blog_button' => $request->blog_button,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+                "updated_at" => Carbon::now(),
+            ]);
+
+
+            $notification = array(
+                'message' => "Blog Data Without image updated  successfully",
+                'alert-type' => "success",
+            );
+
+            return redirect()->route('admin.allblogs')->with($notification);
         }
     }
 
@@ -126,5 +146,27 @@ class BlogController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+    //For Blog Detail Page
+    public function blog_detail($id)
+    {
+        $recentblog = Blog::latest()->limit(5)->get();
+        $blog = Blog::find($id);
+        $categories = Category::OrderBy('category_name', 'ASC')->get();
+        return view('frontend.Blog.Blog_detail', compact('blog', 'recentblog', 'categories'));
+    }
+    public function categoryDetail($id)
+    {
+        $recentblog = Blog::latest()->limit(5)->get();
+        $blogpost = Blog::where('category_id', $id)->orderBy('id', 'DESC')->get();
+        $categories = Category::OrderBy('category_name', 'ASC')->get();
+        $categoryname = Category::findorFail($id);
+        return view('frontend.Blog.categoryblogdetail', compact('blogpost', 'recentblog', 'categories', 'categoryname'));
+    }
+    public function allblogs()
+    {
+        $allblog = Blog::latest()->get();
+        $categories = Category::OrderBy('category_name', 'ASC')->get();
+        return view('frontend.Blog.allblog', compact('allblog', 'categories'));
     }
 }

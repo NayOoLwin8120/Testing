@@ -60,7 +60,7 @@
                                         <p><span>{{$aboutus->short_title}}</span></p>
                                     </div>
                                 </div>
-                                <p class="desc">{{$aboutus->short_description}}</p>
+                                <p class="desc">{!!$aboutus->short_description!!}</p>
                                 <a href="about.html" class="btn">Download my resume</a>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                                        <p class="desc">{{$aboutus->long_description}}</p>
+                                        <p class="desc">{!!$aboutus->long_description!!}</p>
                                         <ul class="about__exp__list">
                                             <li>
                                                 <h5 class="title">User experience design - (Product Design)</h5>

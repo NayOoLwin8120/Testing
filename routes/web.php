@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\FooterController;
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PortfilioController;
 
 
@@ -88,8 +89,13 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('admin/addblog', 'addblog')->name('admin.addblog');
     Route::post('admin/storeblog', 'storeblog')->name('admin.blog_store');
     Route::get('admin/editblog/{id}', 'editblog')->name('admin.editblog');
-    Route::post('admin/updateblog', 'updateblog')->name('admin.updateblog');
+    Route::post('admin/updateblog', 'updateblog')->name('admin.updateblog_detail');
     Route::get('admin/deleteblog/{id}', 'deleteblog')->name('admin.deleteblog');
+
+    // For Blog Detail Page
+    Route::get('blog_detail/{id}', 'blog_detail')->name('blogdetail');
+    Route::get('category/blog/{id}', 'categoryDetail')->name('viewcategory');
+    Route::get('blogs', 'allblogs')->name('allblogs');
 });
 //Category Controller
 Route::controller(CategoryController::class)->group(function () {
@@ -99,6 +105,13 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('admin/edit_blog_category/{id}', 'edit_blog_category')->name('admin.editcategoryblog');
     Route::post('admin/update_blog_category/{id}', 'update_blog_category')->name('admin.update_blog_category');
     Route::get('admin/delete_blog_category/{id}', 'delete_blog_category')->name('admin.deletecategoryblog');
+});
+
+// Footer Controller
+Route::controller(FooterController::class)->group(function () {
+    Route::get('admin/footer/all_footer', 'footer')->name('admin.all_footer');
+    Route::get('admin/footer/add_footer', 'addfooter')->name('admin.footer_add');
+    Route::post('admin/footer/store_footer', 'store_footer')->name('admin.footer_store');
 });
 
 require __DIR__ . '/auth.php';

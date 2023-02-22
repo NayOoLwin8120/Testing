@@ -375,7 +375,7 @@
                         <div class="dropdown d-inline-block user-dropdown">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="{{!empty($admindata->image)?url('admin/profileimage/'.$admindata->image):url('admin/no_image.jpeg')}}"
+                                <img class="rounded-circle header-profile-user" src="{{!empty($admindata->image) ? url('admin/profileimage/'.$admindata->image) : url('admin/no_image.jpg')}}"
                                     alt="Header Avatar">
                                 {{-- <span class="d-none d-xl-inline-block ms-1">{{Auth::user()->username}}</span> --}}
                                 <span class="d-none d-xl-inline-block ms-1">{{$admindata->username}}</span>

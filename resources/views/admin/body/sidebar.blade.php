@@ -93,7 +93,7 @@
                                 </ul>
                             </li>
 
-                             <li>
+                            <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
                                     <span>Blog-page Setup</span>
@@ -105,6 +105,25 @@
                                         <a href="{{route('admin.addblogcategory')}}" >Blog_category add  </a>
                                         <a href="{{route('admin.all_blog_category')}}" >All Blog_category  </a>
                                         <a href="{{route('admin.allblogs')}}" >All Blog </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Footer_page Setup</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+
+                                        <a href="{{route('admin.footer_add')}}" >Footer_page add </a>
+
+
+                                        <a href="{{route('admin.all_footer')}}" >All Footer </a>
 
                                     </li>
 
