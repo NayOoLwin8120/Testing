@@ -13,12 +13,12 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                        <h4 class="mb-sm-0">All Footer Data</h4>
+                                        <h4 class="mb-sm-0">All Contact Data</h4>
 
                                         <div class="page-title-right">
                                             <ol class="breadcrumb m-0">
-                                                <li class="breadcrumb-item"><a href="javascript: void(0);">All Footer Data</a></li>
-                                                <li class="breadcrumb-item active">All Footer Data</li>
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Contact Me Location </a></li>
+                                                <li class="breadcrumb-item active">All Coantact me</li>
                                             </ol>
                                         </div>
 
@@ -34,9 +34,9 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">All Footer</h4>
+                    <h4 class="card-title">All Contacat Me</h4>
                     <p class="card-title-desc">
-                      All Footer
+                      All Contact Me Data
                     </p>
 
 
@@ -54,17 +54,8 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Short_description</th>
-                          <th>Phone_number</th>
-
-                          <th>Country</th>
-                          <th>Address</th>
-                          <th>Email</th>
-                          <th>Facebook_link</th>
-                          <th>Twitter_link</th>
-                          <th>Linkedin_link</th>
-                          <th>Instragram_link</th>
-                          <th>Copyright</th>
+                          <th>Location</th>
+                          <th>Usermail</th>
                           <th>Created_at</th>
                           <th>Updated_at</th>
                           <th>Action</th>
@@ -73,30 +64,24 @@
 
                       <tbody>
                        @php($i=1)
-                        @foreach($allfooter as $item)
+                        @foreach($alldata as $item)
                         <tr >
                           <td>{{$i++}}</td>
-                          <td >{{$item->short_description}}</td>
-                          <td>{{$item->phone_number}}</td>
 
-                          <td>{{$item->Country}}</td>
-                          <td>{{$item->address}}</td>
-                          <td>{{$item->email}}</td>
-                          <td>{{$item->facebook_link}}</td>
-                          <td>{{$item->twitter_link}}</td>
-                          <td>{{$item->Linked_in}}</td>
-                          <td>{{$item->Instrgram}}</td>
-                          <td>{{$item->copyright}}</td>
+                          <td>{{$item->location}}</td>
+
+                          <td>{{$item->footer->email}}</td>
+
                           <td>{{$item->created_at}}</td>
                           <td>{{$item->updated_at}}</td>
                           <td>
-                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit" href="{{route('admin.editfooter',$item->id)}}">
+                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit" href="{{route('admin.editcontact',$item->id)}}">
                                  <i class="fas fa-pencil-alt"></i>
                             </a>
 
 
                              <a class="btn btn-danger btn-outline-secondary btn-sm edit" title="Edit"
-                             href="{{route('admin.deleteblog',$item->id)}}" id="delete">
+                             href="{{route('admin.deletecontact',$item->id)}}" id="delete">
                                                                <i class="fas fa-trash"></i>
                             </a>
                           </td>

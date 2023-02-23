@@ -17,8 +17,9 @@ class FooterController extends Controller
     {
         return view('admin.Footer.AddFooter');
     }
-    public function store_footer(Request $request)
+    public function storefooter(Request $request)
     {
+
 
         $request->validate(
             [
@@ -49,15 +50,15 @@ class FooterController extends Controller
         );
         Footer::insert(
             [
-                'phone_number' => $request->phonenumber,
+                'phone_number' => $request->phone_number,
                 'short_description' => $request->short_description,
-                'Country' => $request->country,
+                'Country' => $request->Country,
                 'address' => $request->address,
-                'email' => $request->emailname,
-                'facebook_link' => $request->facebook,
-                'twitter_link' => $request->twitter,
-                'Linked_in' => $request->linkedin,
-                'Instrgram' => $request->instrgram,
+                'email' => $request->email,
+                'facebook_link' => $request->facebook_link,
+                'twitter_link' => $request->twitter_link,
+                'Linked_in' => $request->Linked_in,
+                'Instrgram' => $request->Instrgram,
                 'copyright' => $request->copyright,
                 'created_at' => Carbon::now(),
             ]
@@ -67,6 +68,42 @@ class FooterController extends Controller
             'alert-type' => "success",
         );
 
-        return redirect(route('admin . all_footer'))->with($notification);
+        return redirect()->route('admin.all_footer')->with($notification);
+    }
+
+    public function editfooter($id)
+    {
+        $data = Footer::findorFail($id);
+        return view('admin.Footer.EditFooter', compact('data'));
+    }
+    public function updatefooter(Request $request, $id)
+    {
+        Footer::findorFail($id)->update([
+            'phone_number' => $request->phone_number,
+            'short_description' => $request->short_description,
+            'Country' => $request->Country,
+            'address' => $request->address,
+            'email' => $request->email,
+            'facebook_link' => $request->facebook_link,
+            'twitter_link' => $request->twitter_link,
+            'Linked_in' => $request->Linked_in,
+            'Instrgram' => $request->Instrgram,
+            'copyright' => $request->copyright,
+            'updated_at' => Carbon::now(),
+        ]);
+        $notification = array(
+            'message' => "Footer Updated successfully",
+            'status' => "success",
+        );
+        return redirect()->route('admin.all_footer')->with($notification);
+    }
+    public function deletefooter($id)
+    {
+        Footer::findorFail($id)->delete();
+        $notification = array(
+            'message' => 'Footer Deleted Successfully',
+            'status' => 'success',
+        );
+        return redirect()->route('admin.all_footer')->with($notification);
     }
 }

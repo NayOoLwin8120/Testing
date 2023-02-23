@@ -12,6 +12,7 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfilioController;
 
 
@@ -111,7 +112,29 @@ Route::controller(CategoryController::class)->group(function () {
 Route::controller(FooterController::class)->group(function () {
     Route::get('admin/footer/all_footer', 'footer')->name('admin.all_footer');
     Route::get('admin/footer/add_footer', 'addfooter')->name('admin.footer_add');
-    Route::post('admin/footer/store_footer', 'store_footer')->name('admin.footer_store');
+    Route::post('admin/store_footer', 'storefooter')->name('admin.footer_store');
+    Route::get('admin/edit_footer/{id}', 'editfooter')->name('admin.editfooter');
+    Route::post('admin/update_footer/{id}', 'updatefooter')->name('admin.footer_update');
+    Route::get('admin/delete_footer/{id}', 'deletefooter')->name('admin.deleteblog');
+
+    // For Footer Detail page
+});
+
+Route::controller(ContactController::class)->group(function () {
+    Route::get('admin/allcontact', 'allcontact')->name('admin.allcontactdata');
+    Route::get('admin/Contactme', 'adddata')->name('admin.contactme');
+    Route::post('admin/Storecontactme', 'storedata')->name('admin.contactme_store');
+    Route::get('admin/editcontactme/{id}', 'editcontact')->name('admin.editcontact');
+    Route::post('admin/updatecontact/{id}', 'updatecontact')->name('admin.updatecontactme');
+    Route::get('admin/deletecontact/{id}', 'deletecontact')->name('admin.deletecontact');
+
+
+    Route::post('/store/message', 'StoreMessage')->name('store.message');
+    Route::get('/contact/message', 'ContactMessage')->name('contact.message');
+    Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
+
+    //For Contact Detail page
+    Route::get('/contact', 'contact')->name('contactme');
 });
 
 require __DIR__ . '/auth.php';

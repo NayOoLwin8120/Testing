@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Blog;
+use App\Models\Footer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+class Contact extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function blog()
+    public function footer()
     {
-        return $this->hasMany(Blog::class);
+        return $this->belongsTo(Footer::class);
     }
 }

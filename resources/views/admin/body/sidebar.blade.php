@@ -131,6 +131,31 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Contact me Location Setup</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+
+                                       <li>
+                                         <a href="{{route('admin.contactme')}}" >Contact Me add </a>
+                                       </li>
+
+                                       <li>
+                                        <a href="{{route('admin.allcontactdata')}}" >All Contact My data </a>
+                                        <li>
+
+
+                                        <li><a href="{{ route('contact.message') }}">Contact Message</a></li>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
                             <li class="menu-title">Pages</li>
 
                             <li>
