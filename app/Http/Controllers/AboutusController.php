@@ -21,7 +21,7 @@ class AboutusController extends Controller
     {
         $aboutus = Aboutus::find(1);
         $multiimg = MultiImage::all();
-        // @dd($multiimg[0]);
+        // @dd($multiimg[0]);s
         return view('admin.About_us.about_us', compact(['aboutus', 'multiimg']));
     } //end
     public function storeaboutus(Request $request)

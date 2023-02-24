@@ -14,10 +14,12 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="homeContact__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter name*">
-                                        <input type="email" placeholder="Enter mail*">
-                                        <input type="number" placeholder="Enter number*">
+                                    <form action="{{route('store.message')}}"  method="post">
+                                        @csrf
+                                        <input type="text" placeholder="Enter name*" name="name">
+                                        <input type="email" placeholder="Enter mail*" name="email">
+                                       <input type="text" placeholder="Enter your subject*" name="subject">
+                                        <input type="number" placeholder="Enter number*" name="phone">
                                         <textarea name="message" placeholder="Enter Massage*"></textarea>
                                         <button type="submit">Send Message</button>
                                     </form>

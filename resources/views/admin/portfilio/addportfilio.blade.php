@@ -18,7 +18,7 @@
                    <div class="row mb-3">
                         <label for="title_name" class="col-sm-2 col-form-label">Prtfilio_Name</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" value="" id="portfilio_name" name="portfilio_name">
+                            <input class="form-control" type="text" value="" id="title_name" name="portfilio_name">
                             @error('portfilio_name')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
@@ -48,7 +48,7 @@
                     <div class="row mb-3">
                         <label for="elm1" class="col-sm-2 col-form-label">Portfilio_Description</label>
                         <div class="col-sm-10">
-                            <textarea id="elm1" name="portfilio_description" >Hello</textarea>
+                            <textarea id="elm1" name="portfilio_description" ></textarea>
                             @error('portfilio_description')
                             <span class="text-danger">{{$message}}</span>
                             @enderror

@@ -86,7 +86,7 @@ class ContactController extends Controller
 
     public function StoreMessage(Request $request)
     {
-        @dd('hit');
+
 
         Contactme::insert([
 
@@ -104,7 +104,7 @@ class ContactController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('contactme')->with($notification);
     }
 
     public function ContactMessage()

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Rasalina - Personal Portfolio HTML Template</title>
+        <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -69,5 +69,6 @@
         <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
         <script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>
         <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+        <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
     </body>
 </html>

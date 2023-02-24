@@ -10,9 +10,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FooterController;
 
 use App\Http\Controllers\AboutusController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PortfilioController;
 
 
@@ -41,14 +43,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 //All Auth Controller
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'showprofile')->name('admin.profile');
-    Route::get('/admin/editprofile', 'editprofile')->name('admin.editprofile');
-    Route::post('/admin/storeprofile', 'storeprofile')->name('admin.storeprofile');
-
-    Route::get('/admin/changepassword', 'changepassword')->name('admin.auth.changepassword');
-    Route::post('/admin/updatepassword', 'updatepassword')->name('admin.updatepassword');
+Route::middleware(['auth'])->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/admin/logout', 'destroy')->name('admin.logout');
+        Route::get('/admin/profile', 'showprofile')->name('admin.profile');
+        Route::get('/admin/editprofile', 'editprofile')->name('admin.editprofile');
+        Route::post('/admin/storeprofile', 'storeprofile')->name('admin.storeprofile');
+        Route::get('/admin/changepassword', 'changepassword')->name('admin.auth.changepassword');
+        Route::post('/admin/updatepassword', 'updatepassword')->name('admin.updatepassword');
+    });
 });
 //All Home controller
 Route::controller(HomeController::class)->group(function () {
@@ -73,6 +76,8 @@ Route::controller(AboutusController::class)->group(function () {
     Route::get('admin/aboutus/deletemultiimage/{id}', 'deletemultiimage')->name('admin.deletemultimage');
 });
 
+
+
 //Portfilio Controller
 Route::controller(PortfilioController::class)->group(function () {
     Route::get('admin/allportfilio', 'allportfilio')->name('admin.allportfilio');
@@ -82,6 +87,9 @@ Route::controller(PortfilioController::class)->group(function () {
     Route::post('admin/updateportfilio', 'updateportfilio')->name('admin.updateportfilio');
     Route::get('admin/deleteportfilio/{id}', 'deleteportfilio')->name('admin.deleteportfilio');
     Route::get('admin/portfilio_detail/{id}', 'portfilio_detail')->name('admin.portfilio_detail');
+
+    //all portfilio
+    Route::get('/portfolio', 'HomePortfolio')->name('home.portfolio');
 });
 
 //BlogController
@@ -98,6 +106,27 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('category/blog/{id}', 'categoryDetail')->name('viewcategory');
     Route::get('blogs', 'allblogs')->name('allblogs');
 });
+
+// All Partner Controller
+Route::controller(PartnerController::class)->group(function () {
+    Route::get('/admin/addpartner', 'addpartner')->name('admin.addpartner');
+    Route::post('/admin/storepartner', 'storepartner')->name('admin.partner_store');
+    Route::get('/admin/editpartner/{id}', 'editpartner')->name('admin.editpartner');
+    Route::get('/admin/deletepartner/{id}', 'deletepartner')->name('admin.deletepartner');
+    Route::get('/admin/allparter', 'allpartner')->name('admin.all_partner');
+
+
+    Route::get('/admin/partner/multiimage', 'multiimage')->name('admin.partnerimg');
+    Route::post('/admin/partner/update/multiimage', 'storemultiimage')->name('admin.store_partnerimage');
+
+    Route::get('admin/partner/showMultipleimage', 'showmultipleimage')->name('admin.showmultiimage');
+
+    //Edit multi image
+    Route::get('admin/partner/editmultiimage/{id}', 'editmultiimage')->name('admin.editpartnerimage');
+    Route::post('admin/partner/updatemultiimage/', 'updatemultiimage')->name('admin.update_partner');
+    Route::get('admin/partner/deletemultiimage/{id}', 'deletemultiimage')->name('admin.deletepartnerimage');
+});
+
 //Category Controller
 Route::controller(CategoryController::class)->group(function () {
     Route::get('admin/all_blogs_category', 'all_blog_category')->name('admin.all_blog_category');
@@ -136,5 +165,15 @@ Route::controller(ContactController::class)->group(function () {
     //For Contact Detail page
     Route::get('/contact', 'contact')->name('contactme');
 });
+
+
+//For Service Page
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('admin/allservice', 'allservice')->name('admin.allservice');
+    Route::get('admin/service/addservice', 'addservice')->name('admin.addservice');
+    Route::post('admin/service/storeservice', 'storeservice')->name('admin.service_store');
+    Route::get('admin/service/editservice/{id}', 'editservice')->name('admin.editservice');
+});
+
 
 require __DIR__ . '/auth.php';

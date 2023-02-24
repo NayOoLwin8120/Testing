@@ -1,6 +1,8 @@
  @extends('frontend.main_master')
 @section('main')
-
+@section('title')
+BLog_detail | Personal Portfilio
+@endsection
  <!-- main-area -->
         <main>
 

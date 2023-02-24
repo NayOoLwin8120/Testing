@@ -1,5 +1,5 @@
 @php
-    $data= App\Models\Footer::latest()->find(3);
+    $data= App\Models\Footer::find(4);
     // @dd($data);
 
 @endphp

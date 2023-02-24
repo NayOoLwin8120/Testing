@@ -5,6 +5,9 @@
 
 @extends('frontend.main_master')
 @section('main')
+@section('title')
+Home | Personal Portfilio
+@endsection
 
     <!-- banner-area-end -->
     @include('frontend.main.banner')
@@ -219,50 +222,7 @@
     <!-- portfolio-area-end -->
 
     <!-- partner-area -->
-    <section class="partner">
-    <div class="container">
-    <div class="row align-items-center">
-    <div class="col-lg-6">
-    <ul class="partner__logo__wrap">
-    <li>
-    <img class="light" src="assets/img/icons/partner_light01.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_01.png" alt="">
-    </li>
-    <li>
-    <img class="light" src="assets/img/icons/partner_light02.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_02.png" alt="">
-    </li>
-    <li>
-    <img class="light" src="assets/img/icons/partner_light03.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_03.png" alt="">
-    </li>
-    <li>
-    <img class="light" src="assets/img/icons/partner_light04.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_04.png" alt="">
-    </li>
-    <li>
-    <img class="light" src="assets/img/icons/partner_light05.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_05.png" alt="">
-    </li>
-    <li>
-    <img class="light" src="assets/img/icons/partner_light06.png" alt="">
-    <img class="dark" src="assets/img/icons/partner_06.png" alt="">
-    </li>
-    </ul>
-    </div>
-    <div class="col-lg-6">
-    <div class="partner__content">
-    <div class="section__title">
-    <span class="sub-title">05 - partners</span>
-    <h2 class="title">I proud to have collaborated with some awesome companies</h2>
-    </div>
-    <p>I'm a bit of a digital product junky. Over the years, I've used hundreds of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to try designing and building my own.</p>
-    <a href="contact.html" class="btn">Start a conversation</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
+@include('frontend.main.partner');
     <!-- partner-area-end -->
 
     <!-- testimonial-area -->
@@ -323,35 +283,7 @@
             <!-- blog-area-end -->
 
             <!-- contact-area -->
-            <section class="homeContact">
-                <div class="container">
-                    <div class="homeContact__wrap">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="section__title">
-                                    <span class="sub-title">07 - Say hello</span>
-                                    <h2 class="title">Any questions? Feel free <br> to contact</h2>
-                                </div>
-                                <div class="homeContact__content">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                    <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="homeContact__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter name*">
-                                        <input type="email" placeholder="Enter mail*">
-                                        <input type="number" placeholder="Enter number*">
-                                        <textarea name="message" placeholder="Enter Massage*"></textarea>
-                                        <button type="submit">Send Message</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           @include('frontend.main.contact')
             <!-- contact-area-end -->
 
 @endsection

@@ -117,4 +117,11 @@ class PortfilioController extends Controller
         $portfilio = Portfilio::find($id);
         return view('frontend.portfilio_detail', compact('portfilio'));
     }
+    //for all
+    public function HomePortfolio()
+    {
+
+        $portfolio = Portfilio::latest()->get();
+        return view('frontend.portfilio', compact('portfolio'));
+    }
 }

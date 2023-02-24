@@ -1,6 +1,8 @@
 @extends('frontend.main_master')
 @section('main')
-
+@section('title')
+Category_Detail | Personal Portfilio
+@endsection
 <main>
 
             <!-- breadcrumb-area -->

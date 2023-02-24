@@ -1,5 +1,8 @@
 @extends('frontend.main_master')
 @section('main')
+@section('title')
+Portfilio | Personal Portfilio
+@endsection
 @php
     $multi_img=App\Models\MultiImage::all();
     $portfilio=App\Models\Portfilio::all();

@@ -156,6 +156,52 @@
                                 </ul>
                             </li>
 
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Partner  Setup</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+                                       <li>
+                                         <a href="{{route('admin.addpartner')}}" >Partner add </a>
+                                       </li>
+                                       <li>
+                                         <a href="{{route('admin.partnerimg')}}" >Add Partner Image </a>
+                                       </li>
+                                       <li>
+                                         <a href="{{route('admin.showmultiimage')}}" >All Partner Image</a>
+                                       </li>
+                                       <li>
+                                        <a href="{{route('admin.all_partner')}}" >All My Partner  </a>
+                                        <li>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                             <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Services  Setup</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+                                       <li>
+                                         <a href="{{route('admin.addservice')}}" >Services add </a>
+                                       </li>
+                                       <li>
+                                         <a href="{{route('admin.allservice')}}" >Add Partner Image </a>
+
+                                         <a href="{{route('admin.showmultiimage')}}" >All Partner Image</a>
+
+
+
+                                </ul>
+                            </li>
+
                             <li class="menu-title">Pages</li>
 
                             <li>

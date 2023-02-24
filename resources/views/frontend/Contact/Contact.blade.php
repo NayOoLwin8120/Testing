@@ -1,6 +1,8 @@
 @extends('frontend.main_master')
 @section('main')
-
+@section('title')
+Contact | Personal Portfilio
+@endsection
  <main>
 
             <!-- breadcrumb-area -->
@@ -44,6 +46,7 @@
             <div class="contact-area">
                 <div class="container">
                     <form action="{{route('store.message')}}" method="post" class="contact__form">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" placeholder="Enter your name*" name="name">
