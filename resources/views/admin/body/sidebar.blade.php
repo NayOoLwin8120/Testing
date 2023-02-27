@@ -193,9 +193,9 @@
                                          <a href="{{route('admin.addservice')}}" >Services add </a>
                                        </li>
                                        <li>
-                                         <a href="{{route('admin.allservice')}}" >Add Partner Image </a>
+                                         <a href="{{route('admin.allservice')}}" >All Service </a>
+                                       </li>
 
-                                         <a href="{{route('admin.showmultiimage')}}" >All Partner Image</a>
 
 
 

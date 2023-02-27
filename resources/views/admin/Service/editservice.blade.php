@@ -9,19 +9,17 @@
     <div class="page-content">
         <div class="card-body">
 
-                <h1 class="card-title text-center mb-3">Add Service</h1>
+                <h1 class="card-title text-center mb-3">Edit Service</h1>
 
                 <!-- end row -->
-                <form action="{{route('admin.service_store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('admin.updateservice'),$servicedata->id}}" method="post" enctype="multipart/form-data">
             @csrf
-
+            <input class="form-control" type="hidden" value="{{$servicedata->id}}"  name="id">
                    <div class="row mb-3">
                         <label for="title_name" class="col-sm-2 col-form-label">Service Title</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" value="" id="title_name" name="title">
-                            @error('title')
-                                <span class="text-danger">{{$message}}</span>
-                            @enderror
+                            <input class="form-control" type="text" value="{{$servicedata->title}}" id="title_name" name="title">
+
                         </div>
                     </div>
 
@@ -32,20 +30,16 @@
                     <div class="row mb-3">
                         <label for="elm1" class="col-sm-2 col-form-label">Service Description</label>
                         <div class="col-sm-10">
-                            <textarea id="elm1" name="description" ></textarea>
-                            @error('description')
-                            <span class="text-danger">{{$message}}</span>
-                            @enderror
+                            <textarea id="elm1" name="description" >{{$servicedata->description}}</textarea>
+
                         </div>
                     </div>
 
                      <div class="row mb-3">
                         <label for="servicebutton" class="col-sm-2 col-form-label">Button</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" value=' 'id="servicebutton" name="button">
-                            @error('button')
-                                <span class="text-danger">{{$message}}</span>
-                            @enderror
+                            <input class="form-control" type="text" value='{{$servicedata->button}} 'id="servicebutton" name="button">
+
                         </div>
                     </div>
 
@@ -55,19 +49,16 @@
                         <div class="col-sm-10">
                             <input class="form-control" type="file"  id="image"
                             name="service_image">
-                            @error('service_image')
-                            <span class="text-danger">{{$message}}</span>
 
-                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="show_image" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                         <img class="w-25 " id="show_image" src="{{ asset('admin/no_image.jpg')}}" alt="Show Slider Imgae">
+                         <img class="w-25 " id="show_image" src="{{!empty($servicedata->service_image) ? url($servicedata->service_image):url('admin/no_image.jpeg')}}" alt="Show Slider Imgae">
                         </div>
                     </div>
-                   <input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light" value="Home Slider ">
+                   <input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light" value="Update Service ">
                 </form>
 
 

@@ -173,6 +173,11 @@ Route::controller(ServiceController::class)->group(function () {
     Route::get('admin/service/addservice', 'addservice')->name('admin.addservice');
     Route::post('admin/service/storeservice', 'storeservice')->name('admin.service_store');
     Route::get('admin/service/editservice/{id}', 'editservice')->name('admin.editservice');
+    Route::post('admin/service/updateservice', 'update_service')->name('admin.updateservice');
+    Route::get('admin/service/deleteservice/{id}', 'deleteservice')->name('admin.deleteservice');
+
+    //service frontend
+    Route::get('service_details/{id}', 'service_detail')->name('service_detail');
 });
 
 

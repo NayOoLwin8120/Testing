@@ -69,7 +69,7 @@
                           <td>{{$i++}}</td>
                           <td>{{$item->title}}</td>
                           <td><img src="{{asset($item->service_image)}}" alt="noimage" style="width: 60px;height:60px"></td>
-                          <td>{{$item->descritpion}}</td>
+                          <td>{{$item->description}}</td>
                           <td>{{$item->button}}</td>
 
 

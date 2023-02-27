@@ -17,6 +17,7 @@ $route=Route::current()->getName();
                                         <ul class="navigation">
                                             <li class="{{ $route == 'home' ? 'active' : ''}}"><a href="{{route('home')}}">Home</a></li>
                                             <li class="{{ $route == 'home.about' ? 'active' : ''}}"><a href="{{route('home.about')}}">About</a></li>
+                                            <li class="{{ $route == 'service_detail' ? 'active' : ''}}"><a href="">Services</a></li>
 
                                             <li class="menu-item-has-children {{ $route == 'home.portfolio' ? 'active' : ''}}"><a href="{{ route('home.portfolio') }}">Portfolio</a>
 
