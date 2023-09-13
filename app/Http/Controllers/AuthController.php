@@ -49,6 +49,7 @@ class AuthController extends Controller
         $data->username = $request->username;
         if ($request->file('image')) {
             $file = $request->file('image');
+            @unlink(public_path('admin/profileimage/' . $data->image));
             $filename = date('Y-m-d H:i:s') .  $file->getClientOriginalName();
             $file->move(public_path('admin/profileimage'), $filename);
             $data['image'] = $filename;

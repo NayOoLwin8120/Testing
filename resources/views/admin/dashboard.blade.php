@@ -64,7 +64,7 @@
             <!-- Start right Content here -->
             <!-- ============================================================== -->
 
-             @yield('maincontent')
+            @yield('maincontent')
             @include('admin.body.footer')
 
             <!-- end main content-->
